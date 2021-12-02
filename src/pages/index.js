@@ -32,8 +32,14 @@ const IndexPage = () => {
         videos: allYoutubeVideo(limit: 3) {
           edges {
             node {
+              id
               title
+              description
               videoId
+              publishedAt
+              thumbnail {
+                url
+              }
             }
           }
         }
@@ -64,12 +70,7 @@ const IndexPage = () => {
           <h2>Latest Videos</h2>
           <div>
             {data.videos.edges.length
-              ? data.videos.edges.map((video) => (
-                  <Video
-                    videoId={video.node.videoId}
-                    videoTitle={video.node.title}
-                  />
-                ))
+              ? data.videos.edges.map((video) => <Video video={video.node} />)
               : null}
           </div>
         </VideoContainer>

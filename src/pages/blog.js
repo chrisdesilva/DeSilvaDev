@@ -83,6 +83,7 @@ const Content = styled.div`
 const Post = styled(Link)`
   background-color: var(--transparent-white-75);
   border: 2px solid var(--black);
+  box-shadow: var(--box-shadow);
   padding: 16px 32px;
   border-radius: var(--card-radius);
   margin-bottom: 16px;
@@ -90,7 +91,6 @@ const Post = styled(Link)`
   width: 100%;
   color: var(--dark-green);
   text-decoration: unset;
-  box-shadow: var(--box-shadow);
 
   h3 {
     font-size: 1.5rem;

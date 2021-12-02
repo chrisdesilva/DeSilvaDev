@@ -15,8 +15,14 @@ const VideoPage = () => {
         videos: allYoutubeVideo {
           edges {
             node {
+              id
               title
+              description
               videoId
+              publishedAt
+              thumbnail {
+                url
+              }
             }
           }
         }
@@ -34,13 +40,7 @@ const VideoPage = () => {
           </VisuallyHidden>
           <div>
             {data.videos.edges.length
-              ? data.videos.edges.map((video) => (
-                  <Video
-                    key={video.node.videoId}
-                    videoId={video.node.videoId}
-                    videoTitle={video.node.title}
-                  />
-                ))
+              ? data.videos.edges.map((video) => <Video video={video.node} />)
               : null}
           </div>
         </Content>

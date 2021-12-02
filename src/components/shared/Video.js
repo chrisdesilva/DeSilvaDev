@@ -1,36 +1,35 @@
 import React from "react";
 import styled from "styled-components";
 
-const Video = ({ videoId, videoTitle, ...props }) => (
+const Video = ({ video }) => (
   <Wrapper>
-    <iframe
-      className="iframe"
-      src={`https://www.youtube.com/embed/${videoId}`}
-      title={videoTitle}
-      frameBorder="0"
-      webkitallowfullscreen="true"
-      mozallowfullscreen="true"
-      allowFullScreen
-      modestbranding={1}
-    />
+    <a
+      rel="noopener noreferrer"
+      target="_blank"
+      href={`https://youtu.be/${video.videoId}`}
+    >
+      <img src={video.thumbnail.url} alt={video.title} />
+    </a>
   </Wrapper>
 );
 export default Video;
 
-const Wrapper = styled.div`
-  position: relative;
+const Wrapper = styled.article`
   overflow: hidden;
-  padding-top: 56.25%;
-  border-radius: 12px;
+  border-radius: var(--card-radius);
   border: 2px solid var(--black);
   box-shadow: var(--box-shadow);
 
-  .iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
+  img {
+    border-radius: var(--card-radius);
+    aspect-ratio: 16/9;
     width: 100%;
-    height: 100%;
-    border: 0;
+    object-fit: cover;
+    transform: scale(1) rotate(0deg);
+    transition: transform 150ms;
+
+    :hover {
+      transform: scale(1.05) rotate(2deg);
+    }
   }
 `;

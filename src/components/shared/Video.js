@@ -16,12 +16,11 @@ export default Video;
 
 const Wrapper = styled.article`
   overflow: hidden;
-  border-radius: var(--card-radius);
-  border: 2px solid var(--black);
-  box-shadow: var(--box-shadow);
 
   img {
     border-radius: var(--card-radius);
+    border: 2px solid var(--black);
+    box-shadow: var(--box-shadow);
     aspect-ratio: 16/9;
     width: 100%;
     object-fit: cover;

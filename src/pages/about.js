@@ -26,7 +26,7 @@ const AboutPage = () => {
             React Native, but I've played a bit with Next.js, Gatsby, Angular,
             Express, and Node as well.
           </p>
-          <div>
+          <div className="bitmoji">
             <img src={Bitmoji} alt="Animated Chris DeSilva" />
           </div>
           <h2>
@@ -70,6 +70,10 @@ const Content = styled.div`
   background: var(--white);
   border-radius: 16px;
   box-shadow: var(--box-shadow);
+
+  .bitmoji {
+    box-shadow: var(--box-shadow);
+  }
 
   .title {
     margin-bottom: 32px;

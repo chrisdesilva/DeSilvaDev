@@ -25,6 +25,8 @@ export const GlobalStyle = createGlobalStyle`
         --white: rgb(234, 234, 234);
 
         --box-shadow: 1.5px 3px 3px hsl(0deg 0% 0% / 0.45);
+        --container-radius: 16px;
+        --card-radius: 8px;
     }
 
     *, *::before, *::after {
@@ -40,7 +42,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     body {
-        line-height: 1.5;
+        line-height: 1.6;
         -webkit-font-smoothing: antialiased;
         font-family: 'Outfit', Tahoma, Geneva, Verdana, sans-serif;
     }

@@ -26,7 +26,7 @@ export const Header = () => {
     <Wrapper ref={navRef}>
       <Links scrolled={scrolled}>
         <div>
-          <Link to="/">
+          <Link to="/" className="logo">
             <img src={Logo} alt="DeSilvaDev" />
             {`<DeSilvaDev />`}
           </Link>
@@ -80,10 +80,6 @@ const Links = styled.div`
   max-width: 1200px;
   box-shadow: ${(props) => (props.scrolled ? "var(--box-shadow)" : null)};
 
-  .active {
-    color: var(--sky-blue);
-  }
-
   div {
     width: 100%;
     display: flex;
@@ -111,28 +107,25 @@ const Links = styled.div`
     margin-left: 32px;
   }
 
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   a {
     color: var(--dark-green);
     text-decoration: none;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    transition: color 300ms;
 
-    :hover:after {
-      width: 90%;
+    :hover {
+      color: var(--light-green);
     }
+  }
 
-    :after {
-      transition: 300ms width;
-      content: "";
-      height: 2px;
-      width: 0%;
-      position: absolute;
-      bottom: -8px;
-      left: 5%;
-      background-color: var(--dark-green);
-    }
+  .active {
+    color: var(--light-green);
   }
 
   @media ${BREAKPOINT.md} {
@@ -145,6 +138,21 @@ const Links = styled.div`
     ul {
       justify-content: space-between;
       flex-direction: row;
+    }
+
+    .active {
+      position: relative;
+      color: var(--dark-green);
+      ::after {
+        position: absolute;
+        height: 5px;
+        bottom: -8px;
+        left: 5%;
+        content: "";
+        background-color: var(--light-green);
+        width: 90%;
+        transform: rotate(2deg);
+      }
     }
   }
 `;

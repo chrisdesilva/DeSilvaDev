@@ -99,7 +99,7 @@ const VisuallyHidden = styled.div`
 `;
 
 const ContentContainer = styled.section`
-  border-radius: 20px;
+  border-radius: var(--container-radius);
   padding: 16px 32px;
   box-shadow: var(--box-shadow);
 
@@ -149,7 +149,7 @@ const Post = styled(Link)`
   background-color: var(--transparent-white-75);
   border: 2px solid var(--black);
   padding: 16px 32px;
-  border-radius: 12px;
+  border-radius: var(--card-radius);
   margin-bottom: 16px;
   display: block;
   width: 100%;

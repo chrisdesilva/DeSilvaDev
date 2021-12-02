@@ -60,7 +60,7 @@ const Content = styled.div`
   padding: 16px;
   background: var(--transparent-dark-brown-90);
   border: 3px solid var(--black);
-  border-radius: 8px;
+  border-radius: var(--container-radius);
   box-shadow: var(--box-shadow);
 
   div {

@@ -63,10 +63,23 @@ const Content = styled.div`
   }
 
   a {
-    color: var(---dark-green);
-    transition: color 300ms;
-    :hover {
-      color: var(--light-green);
+    position: relative;
+    text-decoration: none;
+    color: var(--black);
+
+    :hover::after {
+      transform: rotate(2deg) scale(1.05);
+    }
+    ::after {
+      transition: transform 300ms;
+      position: absolute;
+      height: 4px;
+      bottom: -4px;
+      left: 5%;
+      content: "";
+      background-color: var(--light-green);
+      width: 90%;
+      transform: rotate(0deg) scale(1);
     }
   }
 

@@ -67,7 +67,7 @@ const Content = styled.div`
   padding: 16px;
   background: var(--transparent-dark-brown-90);
   border: 3px solid var(--black);
-  border-radius: 8px;
+  border-radius: var(--container-radius);
   box-shadow: var(--box-shadow);
 
   div {
@@ -84,7 +84,7 @@ const Post = styled(Link)`
   background-color: var(--transparent-white-75);
   border: 2px solid var(--black);
   padding: 16px 32px;
-  border-radius: 12px;
+  border-radius: var(--card-radius);
   margin-bottom: 16px;
   display: block;
   width: 100%;

@@ -11,7 +11,7 @@ const BlogPage = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        posts: allContentfulBlog(sort: { fields: date, order: ASC }) {
+        posts: allContentfulBlog(sort: { fields: date, order: DESC }) {
           edges {
             node {
               title
@@ -45,6 +45,7 @@ const BlogPage = () => {
             {data.posts.edges.map((post) => (
               <Post key={post.node.slug} to={`/blog/${post.node.slug}`}>
                 <h3>{post.node.title}</h3>
+                <small>{post.node.date}</small>
                 <p>{post.node.preview.childMdx.excerpt}</p>
                 <p>More &rarr;</p>
               </Post>

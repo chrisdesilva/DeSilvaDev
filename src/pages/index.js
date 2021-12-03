@@ -11,7 +11,10 @@ const IndexPage = () => {
   const data = useStaticQuery(
     graphql`
       query {
-        posts: allContentfulBlog(limit: 3, sort: { fields: date, order: ASC }) {
+        posts: allContentfulBlog(
+          limit: 3
+          sort: { fields: date, order: DESC }
+        ) {
           edges {
             node {
               title
@@ -60,6 +63,7 @@ const IndexPage = () => {
             {data.posts.edges.map((post) => (
               <Post to={`/blog/${post.node.slug}`}>
                 <h3>{post.node.title}</h3>
+                <small>{post.node.date}</small>
                 <p>{post.node.preview.childMdx.excerpt}</p>
                 <p>More &rarr;</p>
               </Post>

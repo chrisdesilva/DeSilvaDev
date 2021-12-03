@@ -29,7 +29,7 @@ module.exports = {
       options: {
         channelId: [`UCsqk14rHyDlGnn5SrP8bN3A`],
         apiKey: process.env.YOUTUBE_KEY,
-        maxVideos: 24,
+        maxVideos: 51,
       },
     },
     "gatsby-plugin-styled-components",

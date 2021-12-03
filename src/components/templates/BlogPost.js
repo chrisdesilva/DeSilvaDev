@@ -1,6 +1,7 @@
 import React from "react";
 import { MARKS } from "@contentful/rich-text-types";
 import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import styled from "styled-components";
 
@@ -11,6 +12,19 @@ const options = {
   renderMark: {
     [MARKS.CODE]: (text) => <pre>{text}</pre>,
   },
+  renderNode: {
+    "embedded-asset-block": (node) => {
+      const { gatsbyImageData } = node.data.target;
+      if (!gatsbyImageData) {
+        // asset is not an image
+        return null;
+      }
+      console.log(node.data.target.title);
+      return (
+        <GatsbyImage image={gatsbyImageData} alt={node.data.target.title} />
+      );
+    },
+  },
 };
 
 export const data = graphql`
@@ -20,6 +34,14 @@ export const data = graphql`
       title
       richText: post {
         raw
+        references {
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            title
+            gatsbyImageData(width: 600, placeholder: BLURRED, cornerRadius: 8)
+          }
+        }
       }
       date(formatString: "MM.DD.yyyy")
       tags
@@ -51,12 +73,18 @@ const Wrapper = styled.section`
 `;
 
 const Content = styled.div`
-  padding: 32px 64px;
+  padding: 32px;
   margin: 0 auto;
   max-width: 900px;
   background: var(--white);
   border-radius: 8px;
   box-shadow: var(--box-shadow);
+
+  .gatsby-image-wrapper {
+    display: block;
+    max-width: 600px;
+    margin: 16px auto;
+  }
 
   .title {
     margin-bottom: 32px;
@@ -86,5 +114,9 @@ const Content = styled.div`
   p {
     font-size: 1.25rem;
     margin-bottom: 32px;
+  }
+
+  img {
+    margin: 0 auto;
   }
 `;

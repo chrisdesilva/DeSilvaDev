@@ -57,7 +57,7 @@ export const Footer = (props) => {
             </li>
             <li>
               <a
-                href="https://twitter.com/desilvadev"
+                href="https://twitter.com/chris_a_desilva"
                 target="_blank"
                 rel="noreferrer noopener"
               >
